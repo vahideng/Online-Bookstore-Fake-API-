@@ -1,0 +1,11 @@
+.BookWrapper{
+height: 100%;
+border: 2px solid orange;
+padding: 20px 2px;
+color:black;
+&:hover{
+    cursor: pointer;
+    background-color: rgb(197, 191, 191);
+}
+}
+
