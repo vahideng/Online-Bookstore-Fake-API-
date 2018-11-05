@@ -1,11 +1,11 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 const NavigationItems = props => {
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <NavLink className="navbar-brand" to="/">
-        Jingers
+          Jingers
         </NavLink>
         <button
           className="navbar-toggler"
@@ -43,9 +43,7 @@ const NavigationItems = props => {
               >
                 Hot
               </NavLink>
-             
             </li>
-         
           </ul>
           <form className="form-inline my-2 my-lg-0">
             <input
@@ -67,4 +65,4 @@ const NavigationItems = props => {
   );
 };
 
-export default NavigationItems
+export default NavigationItems;

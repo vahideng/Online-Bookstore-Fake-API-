@@ -1,26 +1,21 @@
 import React, { Component } from 'react';
-
-import Loading from '../../components/Loading/Loading'
+import Loading from '../../components/Loading/Loading';
 import Book from '../../components/Book/book';
 import Navigation from '../../components/Navigation/NavigationItems';
 import Head from '../../components/Head/Head';
 import { connect } from 'react-redux';
-import {withRouter} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 class mainPage extends Component {
   state = {
     persons: []
   };
 
-  componentDidMount() {
-    // this.props.onFetchProducts();
-  }
-
   clickHandler = id => {
     this.props.history.push('/' + id);
   };
   render() {
-    let data = <Loading/>;
+    let data = <Loading />;
     if (this.props.books) {
       data = this.props.books.map(ite => {
         return (
@@ -47,16 +42,10 @@ class mainPage extends Component {
   }
 }
 
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     onFetchProducts: () => dispatch(actions.fetchdata())
-//   };
-// };
-
 const mapStateToProps = state => {
   return {
     books: state.booksReducer.books
   };
 };
 
-export default withRouter(connect(mapStateToProps)(mainPage)) ;
+export default withRouter(connect(mapStateToProps)(mainPage));
