@@ -1,18 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 class bookDetails extends Component {
-
-
-
   render() {
-    let bookDetail = this.props.match.params.id -1;
-    let book ='';
+    let bookDetail = this.props.match.params.id - 1;
+    let book = 'sd';
     console.log(bookDetail);
     console.log(this.props.books);
-    
-    if(this.props.books){
-       book = (
+
+    if (this.props.books) {
+      book = (
         <div className="jumbotron">
           <h1 className="display-4">{this.props.books[bookDetail].Title}</h1>
           <p className="lead">
@@ -24,21 +22,24 @@ class bookDetails extends Component {
             It uses utility classNamees for typography and spacing to space
             content out within the larger container.
           </p>
-          <a className="btn btn-primary btn-lg" href="/add-to-cart" role="button">
+          <a
+            className="btn btn-primary btn-lg"
+            href="/add-to-cart"
+            role="button"
+          >
             Learn more
           </a>
         </div>
       );
     }
-    
+
     return <div>{book}</div>;
   }
 }
-
 
 const mapStateToProps = state => {
   return {
     books: state.booksReducer.books
   };
 };
-export default connect(mapStateToProps)(bookDetails);
+export default withRouter(connect(mapStateToProps)(bookDetails));

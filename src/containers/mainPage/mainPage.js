@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 
-
+import Loading from '../../components/Loading/Loading'
 import Book from '../../components/Book/book';
 import Navigation from '../../components/Navigation/NavigationItems';
 import Head from '../../components/Head/Head';
 import { connect } from 'react-redux';
+import {withRouter} from 'react-router-dom';
 
 class mainPage extends Component {
   state = {
@@ -19,7 +20,7 @@ class mainPage extends Component {
     this.props.history.push('/' + id);
   };
   render() {
-    let data = '';
+    let data = <Loading/>;
     if (this.props.books) {
       data = this.props.books.map(ite => {
         return (
@@ -58,4 +59,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(mainPage);
+export default withRouter(connect(mapStateToProps)(mainPage)) ;
