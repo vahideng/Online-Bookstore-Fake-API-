@@ -1,0 +1,3 @@
+
+export const FETCH_DATA_INIT = 'FETCH_DATA_INIT';
+export const FETCH_DATA_SUCCESS = 'FETCH_DATA_SUCCESS';

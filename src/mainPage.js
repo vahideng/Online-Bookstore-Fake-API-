@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import * as actions from '../../store/actions/fetchData';
 
 import Book from '../../components/Book/book';
 import Navigation from '../../components/Navigation/NavigationItems';
@@ -12,7 +12,7 @@ class mainPage extends Component {
   };
 
   componentDidMount() {
-    // this.props.onFetchProducts();
+    this.props.onFetchProducts();
   }
 
   clickHandler = id => {
@@ -46,11 +46,11 @@ class mainPage extends Component {
   }
 }
 
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     onFetchProducts: () => dispatch(actions.fetchdata())
-//   };
-// };
+const mapDispatchToProps = dispatch => {
+  return {
+    onFetchProducts: () => dispatch(actions.fetchdata())
+  };
+};
 
 const mapStateToProps = state => {
   return {
@@ -58,4 +58,7 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(mainPage);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(mainPage);
